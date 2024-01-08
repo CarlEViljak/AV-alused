@@ -1,8 +1,12 @@
 # AV-alused
+
 ## Networking for Web Developers
+
 ### From Ping to HTTP
+
 #### Setting Up For Thsi Course
-Seadistan masina Local VM-na, selleks installin VirtualBox ning Vagranti ning jooksutan õpetuses välja toodud commande. Juurde pääsen sellele kui lähen kausta, kuhu selle seadistasin ning runin commandi `vagrant ssh`. Esimesel korral küsis ta minult passwordi 3 korda ning iga kord sisestasin `vagrant`. Peale seda sain ligipääsu ja seal runisin `sudo apt-get update && sudo apt-get upgrade` ning `sudo apt-get install netcat-openbsd tcpdump traceroute mtr`
+Seadistan masina Local VM-na, selleks installin VirtualBox ning Vagranti ning jooksutan õpetuses välja toodud commande. Juurde pääsen sellele kui lähen kausta, kuhu selle seadistasin ning runin commandi `vagrant ssh`. Esimesel korral küsis ta minult passwordi 3 korda ning iga kord sisestasin `vagrant`. Peale seda sain ligipääsu ja seal runisin `sudo apt-get update && sudo apt-get upgrade` ning `sudo apt-get install netcat-openbsd tcpdump traceroute mtr`. Iga kord kui taas avan gitbashi, et kasutada vagranti runin `cd networking`, `vagrant up` ning siis `vagrant ssh` ning password vagrant.
+
 #### Try some network things!
 Edasi runisin kõik videos mainitud commandid:
 `ip addr show eth0` - 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -82,9 +86,60 @@ Keys:  Help   Display mode   Restart statistics   Order of fields   quit
  8. 104.18.5.237                                                              0.0%    50    4.0   5.9   2.3   9.1   1.5
 
 `printf 'HEAD / HTTP/1.1\r\nHost: www.udacity.com\r\n\r\n' | nc www.udacity.com 80` - jooksutades seda commandi ei näidanud mu terminal mingit muutust ega vastet.
+
 #### ping 8.8.8.8
-Õiged vastused minu arvates oleks: Mu arvutil on interneti ühendus ning arvuti 8.8.8.8 töötab
+Õiged vastused minu arvates oleks: Mu arvutil on interneti ühendus ning arvuti 8.8.8.8 töötab.
+
 #### Ping versus HTTP
+HTTP-ga on vaja teada mis veebi leheküljega sa soovid ühendust saada ning saadad selle HTTP GET requesti ning vastena saad tagasi veebilehe. Ping saadab requesti operatsioonisüsteemile mis saadab sealt tagsi vaste. Oluline Ping on lihtsam kui HTTP, aga HTTP ei kasuta Pingi.
+
+#### Write your own HTTP to Wikipedia
+Ma runisin `printf 'HEAD / HTTP/1.1\r\nHost: en.wikipedia.org\r\n\r\n' | nc en.wikipedia.org 80` ning sain vasteks: 
+HTTP/1.1 301 Moved Permanently
+content-length: 0
+location: https://en.wikipedia.org/
+server: HAProxy
+x-cache: cp3066 int
+x-cache-status: int-tls
+connection: close
+Mulle tundub antud olukorras, et lõpp punkt on pandud kinni, sellepärast pole ülesande all koodi ning annab mulle sellise vaste kui saadan requesti.
+
+#### printf and netcat
+printf on command mis annab lihtsalt stringi. Kui seda runida ilma muu commandita prindib ta selle järel oleva teksti õiges formaadis ehk kui sinna on lisatud newline ehk \n tuleb automaatselt newline.
+nc on netcat mida kasutatakse interneti teenustega suhtlemiseks ehk kasutad, et suhelda serveriga või kasutada serverina.
+| kasutatakse, et sellele eelneva vastet kasutada sellele järgneva sisestusena. 
+
+#### What web server does Google use?
+Runnisin `printf 'HEAD / HTTP/1.1\r\nHost: www.google.com\r\n\r\n' | nc www.google.com 80` ning vasteks sain:
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=ISO-8859-1
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-mERLt0Qq769PCh-lFBNdxQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Date: Mon, 08 Jan 2024 15:07:16 GMT
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+Expires: Mon, 08 Jan 2024 15:07:16 GMT
+Cache-Control: private
+Küsitud oli mis serverit Google kasutab ning üks rida on "Server: gws" ehk Google kasutab gws serverit mis peaks olema ta enda server.
+
+#### printf and netcat illustrate layers
+printf + nc saab kasutada HTTP päringuteks
+
+Layer            Protocols             Concepts
+
+Application      HTTP, SSH             URLs, passwords
+Transport        TCP, UDP              Port numbers, sessions
+Internet         IP                    IP addresses, routes
+Hardware         Wifi, ethernet, DSL   signal strength, access points
+
+Iga neist oleneb oma all olevast asjast ning annab asju mis aitavad ta üleval oleva töötamiseks. On ka erandeid näiteks: DNS, ping, ICMP, ARP.
+Kõik asjad mis on üleval- või allpool IPst lähevad sealt läbi.
+
+#### Listen on a Port
+Runin commandi `man nc` mis avab terminalis netcati manuali. Selleks et nc kuulaks port 3456 runing `nc -l 3456`.
+
+#### Waiting For Your Call
 
 ### Names and Addresses
 
