@@ -140,6 +140,10 @@ Kõik asjad mis on üleval- või allpool IPst lähevad sealt läbi.
 Runin commandi `man nc` mis avab terminalis netcati manuali. Selleks et nc kuulaks port 3456 runing `nc -l 3456`.
 
 #### Waiting For Your Call
+Port on nagu telefon, port ühendab arvutiga ning sellega tunneb mis server programm seal jookseb. Kui port ühendub mitte aktiivse arvutiga saab ta vastuseks errori RST (reset packet).
+
+#### Listening and Connecting
+Avasin kaks eraldi terminali ning mõlemas läksin vagranti. Ühes runisin `nc -l 1234` ning teises `nc localhost 1234` sain nende kahe vahel loodud ühenduse. Katkestamiseks kasutasin (ctrl+D) mille leidsin nc manualist. Proovisin algul ka (ctrl+Q) mis paneb mõningate asjade puhul, näiteks help commandi puhul selle lehe kinni.
 
 ### Names and Addresses
 
