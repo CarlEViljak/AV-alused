@@ -140,10 +140,20 @@ Kõik asjad mis on üleval- või allpool IPst lähevad sealt läbi.
 Runin commandi `man nc` mis avab terminalis netcati manuali. Selleks et nc kuulaks port 3456 runing `nc -l 3456`.
 
 #### Waiting For Your Call
-Port on nagu telefon, port ühendab arvutiga ning sellega tunneb mis server programm seal jookseb. Kui port ühendub mitte aktiivse arvutiga saab ta vastuseks errori RST (reset packet).
+Port on nagu telefon, port ühendab arvutiga ning sellega tunneb mis server programm seal jookseb näiteks port 80 on http ning port 22 on ssh. Kui port ühendub mitte aktiivse arvutiga saab ta vastuseks errori RST (reset packet).
 
 #### Listening and Connecting
 Avasin kaks eraldi terminali ning mõlemas läksin vagranti. Ühes runisin `nc -l 1234` ning teises `nc localhost 1234` sain nende kahe vahel loodud ühenduse. Katkestamiseks kasutasin (ctrl+D) mille leidsin nc manualist. Proovisin algul ka (ctrl+Q) mis paneb mõningate asjade puhul, näiteks help commandi puhul selle lehe kinni.
+
+#### Experiment with nc and HTTP
+Kui ma runin näiteks `printf "GET / HTTP/2\r\n\r\n" | nc host.example.com 80` mille HTTP pole 1.1 annab ta mulle vea teate. Ehk siis kui ma saadan vale headeriga annab ta mulle vea teate ning ei toimi. Ma runisin ka `printf "GET / HTTP/1.1\r\nHost: www.example.com\r\n\r\n" | nc www.example.com 80` header on kõik enne html-i.
+
+#### Port Numbers
+Hakkasin järjest katsetama ette antud port numbreid kasutades `nc -l ****` ning `nc localhost ****` (**** on numbrid mida katsetan). Port 100 andis vastuseks "nc: Permission denied" ning localhost ei tee midagi. Port 9999 töötas. Port 10240 töötab samuti. Port 65535 töötab, aga sealt üles ei tööta enam, samuti huvi pärast proovisin kas natuke suurem töötab ehk katsetasin ka port 65536 ning see ei töötanud.
+Edasi proovisin leida kõige väiksemat. Port 1, port 100 ning port 512 ei töötanud andes vastuseks "nc: Permission denied". Katsetasin samuti ka 1023, kuid see andis vastuseks "nc: Permission denied". Ei saa täpselt aru mille all mõeldakse "negative infinity". Proovisin ka port 0.000023 ning see andis vastuseks "nc: getaddrinfo: Servname not supported for ai_socktype".
+
+#### Port Numbers Part Two
+Kõik portid 1023 all on reserveeritud superuseritele või teisisõnu root. Kui tahta alustada web serverit port 80 tuleb seda teha sudo commandiga ning kui see tööle hakkab eemaldab oma ligipääsu rootile, süsteemi kaitseks. Kaks terminali samas arvutis ei saa kuulata samaaegselt sama porti ning annab vea teate.
 
 ### Names and Addresses
 
