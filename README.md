@@ -155,6 +155,13 @@ Edasi proovisin leida kõige väiksemat. Port 1, port 100 ning port 512 ei töö
 #### Port Numbers Part Two
 Kõik portid 1023 all on reserveeritud superuseritele või teisisõnu root. Kui tahta alustada web serverit port 80 tuleb seda teha sudo commandiga ning kui see tööle hakkab eemaldab oma ligipääsu rootile, süsteemi kaitseks. Kaks terminali samas arvutis ei saa kuulata samaaegselt sama porti ning annab vea teate.
 
+#### One listening server per port
+Pidin leidma kõik programmid mis hetkel kuulavad minu arvutit selleks runisin `sudo lsof -i` ning nendeks on:
+sunrpc, ssh, port 34111 ning port 38654.
+
+#### Be a Web Server
+Runisin commandi `printf 'HTTP/1.1 302 Moved\r\nLocation: https://www.eff.org/' | nc -l 2345` ning internetis runisin enda IPv4 nii ethernet 2 ning ethernet 4 kui ka default gateway, kuid kõigil juhtudel sain errori "This site can’t be reached" oma ip leidsin kui runisin terminalis `ipconfig`. Tegelikult peaks ette tulema see lehekülg ning andma mulle ka teate terminalis selle kohta.
+
 ### Names and Addresses
 
 ### Addressing and Networks
