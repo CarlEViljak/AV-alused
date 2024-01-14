@@ -4,7 +4,7 @@
 
 ### From Ping to HTTP
 
-#### Setting Up For Thsi Course
+#### Setting Up For This Course
 Seadistan masina Local VM-na, selleks installin VirtualBox ning Vagranti ning jooksutan õpetuses välja toodud commande. Juurde pääsen sellele kui lähen kausta, kuhu selle seadistasin ning runin commandi `vagrant ssh`. Esimesel korral küsis ta minult passwordi 3 korda ning iga kord sisestasin `vagrant`. Peale seda sain ligipääsu ja seal runisin `sudo apt-get update && sudo apt-get upgrade` ning `sudo apt-get install netcat-openbsd tcpdump traceroute mtr`. Iga kord kui taas avan gitbashi, et kasutada vagranti runin `cd networking`, `vagrant up` ning siis `vagrant ssh` ning password vagrant.
 
 #### Try some network things!
@@ -162,7 +162,19 @@ sunrpc, ssh, port 34111 ning port 38654.
 #### Be a Web Server
 Runisin commandi `printf 'HTTP/1.1 302 Moved\r\nLocation: https://www.eff.org/' | nc -l 2345` ning internetis runisin enda IPv4 nii ethernet 2 ning ethernet 4 kui ka default gateway, kuid kõigil juhtudel sain errori "This site can’t be reached" oma ip leidsin kui runisin terminalis `ipconfig`. Tegelikult peaks ette tulema see lehekülg ning andma mulle ka teate terminalis selle kohta.
 
+#### Outro
+Kui arvuti üritab avada veebilehte, siis ta teeb mitut protsessi korraga enne kui leht ette tuleb. Ja serveril võib ka olla mittu kasutajat, kes on eri punktides ja aegades ning neile on vaja saata sama info ning ka vajadusel kuvada erinevat pilti. Programmil on mitu erinevat viisi kuidas ta korraga haldab mitut ühendust. Esimene on mida algsed serverid tegid ja mida näiteks ssh teeb. Kui uus ühendus tuleb teeb ta selle kaheks ning alustab uut ühendust. Teine variant on kuidas uuemad serverid teevad on teevad ühendus kogu mis tegeleb ühe ühendusega korraga ning see on kiirem kui alustada uuega, aga sellel on limiit palju saab neid korraga ühenduda. Kolmandaks on üks protsess mis vahetab kiirelt ühenduste vahel, näiteks epol linuxis.
+
 ### Names and Addresses
+
+#### Intro
+IPd kasutatakse selleks, et anda kindel punkt internetis mis on ainulaadne ühel ühendusel. Kõik mis internetis liigub on packet ning sellel on alati kaasas IP mis näitab kohta kust see tuli ning kuhu läheb. Host- on masin internetis mis haldab mingit teenust. Endpoints- kaks masinat või programmi mis suhtlevad omavahel.
+
+#### Ping a Hostname
+Ping jookseb seni kuni peatatakse "ctrl + C" `ping -c (number) (koht)` pingib seda nii mitu korda kui on sisestatud number. Runing `ping google.com` ning saan, et google IP on 216.58.211.238 See on suure tõenäosusega erinev, sest googlel on mitu erinevat arvutit, et vähendada töökoormust.
+
+#### Intro to DNS
+DNS (Domain Name System) muudab veebi lehe nimetuse IP aadressiks. DNSis on palju erinevaid protokolle, põhiline on A-Record mida kasutatakse et leida arvuti aadress internetist, tänu selle nimele. Kui luua veebilehte on vaja üles seada ka DNS, et inimesed kes seda lehte otsivad leiaksid selle oma arvutiga üles. DNS võib ka aeguda ning siis pole enam juurdepääsu sellele lehele. Ning sellele annab juurdepääasu The Resolver mis kõigis operatsiooni süsteemides.
 
 ### Addressing and Networks
 
