@@ -176,6 +176,19 @@ Ping jookseb seni kuni peatatakse "ctrl + C" `ping -c (number) (koht)` pingib se
 #### Intro to DNS
 DNS (Domain Name System) muudab veebi lehe nimetuse IP aadressiks. DNSis on palju erinevaid protokolle, põhiline on A-Record mida kasutatakse et leida arvuti aadress internetist, tänu selle nimele. Kui luua veebilehte on vaja üles seada ka DNS, et inimesed kes seda lehte otsivad leiaksid selle oma arvutiga üles. DNS võib ka aeguda ning siis pole enam juurdepääsu sellele lehele. Ning sellele annab juurdepääasu The Resolver mis kõigis operatsiooni süsteemides.
 
+#### The host command
+hostiga saab otsida recordeid DNSist. `host -t a` on a tüüp mis otsib IPv4. Otsisin https://www.twitch.tv/ IP aadressi ning tulemuseks sain, et on 4 IPd:
+twitch.tv has address 151.101.194.167
+twitch.tv has address 151.101.2.167
+twitch.tv has address 151.101.130.167
+twitch.tv has address 151.101.66.167
+
+#### Dig into DNS Records
+Peale `host` commandi saab kasutada `dig` command mis näitab rohkem informatsiooni ning seda on parem kasutada scriptides. dig näitab lisaks serverit mis võttis vastu requesti ning millal see vastu võeti.
+
+#### Research DNS Record Types
+Peale a recordi on veel DNS record tüüpe. CNAME on canonical name. AAAA ("quad-A") on IPv6 aadressid. Ning NS on DNS name server. 
+
 ### Addressing and Networks
 
 ### Protocol Layers
