@@ -189,6 +189,14 @@ Peale `host` commandi saab kasutada `dig` command mis näitab rohkem informatsio
 #### Research DNS Record Types
 Peale a recordi on veel DNS record tüüpe. CNAME on canonical name. AAAA ("quad-A") on IPv6 aadressid. Ning NS on DNS name server. 
 
+#### DNS is Distributed with Caching
+.com jne on gtld - global top-level domain. Resolverid räägivad caching serveriga nt ruuter ning siis saadab edasi root serverisse ja sealt com serverisse ja sealt A record serverisse ning siis paneb selle mällu, et ei peaks uuesti otsima seda. DNSil on TTL see tähendab kaua neid mälus hoiab.
+
+#### DNS and HTTP
+Domeeni nimed on ka olulised HTTPle. SSL on kaitse süsteem mis krüpteerib info serveri ja browseri vahel, et teised ei saaks lugeda privaatset infot. Ning kontrollib kas lehekülg on see mis olema peaks mitte liba leht.
+
+
+
 ### Addressing and Networks
 
 ### Protocol Layers
