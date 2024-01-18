@@ -195,7 +195,14 @@ Peale a recordi on veel DNS record tüüpe. CNAME on canonical name. AAAA ("quad
 #### DNS and HTTP
 Domeeni nimed on ka olulised HTTPle. SSL on kaitse süsteem mis krüpteerib info serveri ja browseri vahel, et teised ei saaks lugeda privaatset infot. Ning kontrollib kas lehekülg on see mis olema peaks mitte liba leht.
 
+#### Subdomains and FQDNs
+DNSi aadressid on sarnased, igal domeenil on oma server mis hoistab vastava domeeni lehekülgi. www. ei ole otseselt kohustuslik domeeni nimi. See on looja enda soov ja valik kuidas ta soovib oma domeeni. Firmadel on ühine otsingu domeen mis otsib sealsed asjad esimesena.
 
+#### Register a Domain
+Veebilehtedele saab ligi ka sisestades selle koha IP aadressi. domains.google.com on võimalik oma domeen luua. Ma ei soovinud raha eest endale domeeni teha, seega ma jätsin selle osa vahele.
+
+#### 32 bits to 128 bits
+On olemas nii IPv4 kui ka IPv6 aadressid. IPv4 kirjutatakse nelja numbriga ja numbrite vahel on punktid. Üks number on 1 byte ehk 8 bit-i. Ehk see number on 0-255.
 
 ### Addressing and Networks
 
