@@ -210,7 +210,19 @@ On olemas nii IPv4 kui ka IPv6 aadressid. IPv4 kirjutatakse nelja numbriga ja nu
 #### Bits
 Nelja bitises suuruses on 16 erinevat väärtust. Iga uus bit duubeldab suuruse.
 
+#### Bits in a Port Number
+Port numbris on 16 biti. 
+
 ### Addressing and Networks
+
+#### Special Addresses
+IPv4 on 32 bitine, kõiki neid kasutata, sest osad on reserveeritud, umbes 1/8 on reserveeritud erinevateks puhkudeks ning neid ei saa niisama kasutada.
+
+#### Reserved IP addresses
+IPv4 lahterdatakse esimese numbri järgi 0, 10 ning 127 on reserveeritud. 192 on osaliselt reserveeritud. 224 on IP multicastiks. Ning alates 240 on kõik kaotatud ning blokeeritud, sest tehti vale arvestus. 1/16 IPv4 ei ole võimalik üldse kasutada.
+
+#### How Many Addresses
+Ma arvan et avalike IPv4 aadresseid on üle biljoni. Sest iga bit kahekordistab arve, siis 32 peaks tulema üle biljoni, aga kindlalt ei saa rohkem kui tähti.
 
 ### Protocol Layers
 
