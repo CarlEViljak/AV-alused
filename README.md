@@ -224,6 +224,15 @@ IPv4 lahterdatakse esimese numbri järgi 0, 10 ning 127 on reserveeritud. 192 on
 #### How Many Addresses
 Ma arvan et avalike IPv4 aadresseid on üle biljoni. Sest iga bit kahekordistab arve, siis 32 peaks tulema üle biljoni, aga kindlalt ei saa rohkem kui tähti.
 
+#### Netblocks and Subnets
+Kõik arvutid samas internetis algavad sama IPga. Need arvutid saavad suhelda omavahel ilma ruuterita. Arvutid võivad sattuda segadusse kui eri bitidega netid. 
+
+#### Subnet Masks
+Mõnikord kasutatakse subnet maske neti suuruseks. Neid kirjutatakse vaskalut alates olenevalt nii palju ühtesid ning ülejäänud 0 ehk siis 24 suurune oleks 255.255.255.0 oktetide kohapealt. 16 decimal subnet oleks 255.255.0.0
+
+#### Stanford's /14
+Stanfordi ülikooli network on /14 ehk esimene osa on kindlalt 171 ning teisest on ainult 6 biti täidetud ning ülejäänud 2 vabad samuti 16 biti peale seda. Subnet mask Stanfordil oleks 255.252.0.0 ehk siis oleks 18 biti hoste mis teeb umbes 250000 aadressi.
+
 ### Protocol Layers
 
 ### Big Networks
