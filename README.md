@@ -233,6 +233,15 @@ Mõnikord kasutatakse subnet maske neti suuruseks. Neid kirjutatakse vaskalut al
 #### Stanford's /14
 Stanfordi ülikooli network on /14 ehk esimene osa on kindlalt 171 ning teisest on ainult 6 biti täidetud ning ülejäänud 2 vabad samuti 16 biti peale seda. Subnet mask Stanfordil oleks 255.252.0.0 ehk siis oleks 18 biti hoste mis teeb umbes 250000 aadressi.
 
+#### Not Enought Addresses
+IPv4 aadresse on vähem kui inimesi ning suurfirmad võtavad endale rohkem aadresse kui vaja.
+
+#### The Host is a Lie
+IPd ei kuulu hostidele vaid interfaceidele. Nt Ethernet interface, Wifi interface, Loopback interface (räägib iseendaga). Loopback on peaaegu alati 127.0.0.1 ning sama localhost
+
+#### Interfaces Quiz
+Minu arvutil on kaks interfacei loopback mis on 127.0.0.1 ning ethernet mis on 10.0.2.15
+
 ### Protocol Layers
 
 ### Big Networks
