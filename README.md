@@ -242,6 +242,15 @@ IPd ei kuulu hostidele vaid interfaceidele. Nt Ethernet interface, Wifi interfac
 #### Interfaces Quiz
 Minu arvutil on kaks interfacei loopback mis on 127.0.0.1 ning ethernet mis on 10.0.2.15
 
+#### Routers and Default Gateways
+Ruuter ühendab erinevaid ipsid internetiga. Ehk kui erinevas local networkis olevad arvutid tahavad omavahel suhelda käib suhtlus läbi ruuteri.
+
+#### Default Gateway Quiz
+Runnisin `ip route show default` ning mu default on etherneti kaudu 10.0.2.2 ning siis ma pingisin enda aadressi, et teada saada kui kiiresti see pingib ning sain tulemuseks min/avg/max/mdev = 0.058/0.360/0.531/0.110 ms
+
+#### NAT
+IPv4 lahenduseks on, et ISP on andnud ühele hostile ühe IPv4 aadressi, põhimõtteliselt jätab ruuter mulje et ühes võrgus on üks arvuti. Kõik masinad ühes võrgus millel on privaatsed aadressid suhtlevad ruuteriga millel on üks avalik aadress ning see suhtleb ISPga. Privaat aadressid kasutavad ühte kolmest reserveeritud netblockist. NAT muudabki privaat aadressi avalikuks. NAT pole lahendus vähestele IPv4 aadressidele, aga võimaldab, et see töötaks
+
 ### Protocol Layers
 
 ### Big Networks
