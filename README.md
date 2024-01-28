@@ -251,6 +251,18 @@ Runnisin `ip route show default` ning mu default on etherneti kaudu 10.0.2.2 nin
 #### NAT
 IPv4 lahenduseks on, et ISP on andnud ühele hostile ühe IPv4 aadressi, põhimõtteliselt jätab ruuter mulje et ühes võrgus on üks arvuti. Kõik masinad ühes võrgus millel on privaatsed aadressid suhtlevad ruuteriga millel on üks avalik aadress ning see suhtleb ISPga. Privaat aadressid kasutavad ühte kolmest reserveeritud netblockist. NAT muudabki privaat aadressi avalikuks. NAT pole lahendus vähestele IPv4 aadressidele, aga võimaldab, et see töötaks
 
+#### Private and Public
+Veebilehed näevad ruuteri avaliku IPd aga ei näe privaat IPd mis on kõigil arvutitel unikaalne. Minu arvuti IP on 10.0.2.15 see aadress on privaatne. Minu avalik IP on 81.90.119.225
+
+#### IPv6
+On lahendus IPv4 vastu. Seal on 128 biti neli korda suurem kui IPv4. IPv6 ei kirjutata decimalis vaid hexadecimal. IPv6 kasutatakse rohkem kodus.
+
+#### IPv6 Quiz
+Läksin lehele "https://test-ipv6.com/" ning proovisin seda arvutis ning telefonis pole mul IPv6
+
 ### Protocol Layers
+
+#### Intro: HTTP on TCP on IP
+
 
 ### Big Networks
