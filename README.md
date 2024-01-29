@@ -263,6 +263,12 @@ Läksin lehele "https://test-ipv6.com/" ning proovisin seda arvutis ning telefon
 ### Protocol Layers
 
 #### Intro: HTTP on TCP on IP
+TCP lubab kahel programmil saata oma vahel infot. HTTP ehitatakse TCP peale ning see omakorda IP peale
 
+#### The Protocaol Stack
+Staki terminite vahel on palju sarnasusi aga need tähendavad erinevaid asju.
+
+#### Watching Ping and DNS in tcpdump
+tcpdumpil on oma keel. ma proovisin runnida ka `sudo tcpdump -n host 8.8.8.8`. Iga pingi kohat tuleb kaks packetit tcpdumpiga ehk üks mis läheb sinna ning üks mis tuleb vastu. Sellega saab ka jälgida DNSi.
 
 ### Big Networks
