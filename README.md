@@ -271,4 +271,26 @@ Staki terminite vahel on palju sarnasusi aga need tähendavad erinevaid asju.
 #### Watching Ping and DNS in tcpdump
 tcpdumpil on oma keel. ma proovisin runnida ka `sudo tcpdump -n host 8.8.8.8`. Iga pingi kohat tuleb kaks packetit tcpdumpiga ehk üks mis läheb sinna ning üks mis tuleb vastu. Sellega saab ka jälgida DNSi.
 
+#### Watching HTTP in tcpdump
+Tegin kaks sessiooni ühes runisin `printf 'HEAD / HTTP/1.1\r\nHost: exmple.net\r\n\r\n' | nc example.net 80` ning teises `sudo tcpdump -n port 80` tulemuseks sain
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+16:13:00.235260 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [S], seq 3612204312, win 29200, options [mss 1460,sackOK,TS val 9518350 ecr 0,nop,wscale 6], length 0
+16:13:00.336581 IP 93.184.216.34.80 > 10.0.2.15.33016: Flags [S.], seq 36672001, ack 3612204313, win 65535, options [mss 1460], length 0
+16:13:00.336607 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [.], ack 1, win 29200, length 0
+16:13:00.336748 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [P.], seq 1:38, ack 1, win 29200, length 37: HTTP: HEAD / HTTP/1.1
+16:13:00.336779 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [F.], seq 38, ack 1, win 29200, length 0
+16:13:00.336934 IP 93.184.216.34.80 > 10.0.2.15.33016: Flags [.], ack 38, win 65535, length 0
+16:13:00.336940 IP 93.184.216.34.80 > 10.0.2.15.33016: Flags [.], ack 39, win 65535, length 0
+16:13:00.439349 IP 93.184.216.34.80 > 10.0.2.15.33016: Flags [P.], seq 1:134, ack 39, win 65535, length 133: HTTP: HTTP/1.1 404 Not Found
+16:13:00.439371 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [.], ack 134, win 30016, length 0
+16:13:00.439381 IP 93.184.216.34.80 > 10.0.2.15.33016: Flags [F.], seq 134, ack 39, win 65535, length 0
+16:13:00.439385 IP 10.0.2.15.33016 > 93.184.216.34.80: Flags [.], ack 135, win 30016, length 0
+
+#### Analyzing the tcpdump data
+Enne kui saadetakse infot luuakse ühendus omavahel ning ei saadeta midagi samuti peale seda kui infot on saadetud võetakse ühendus omavahel maha
+
+#### tcpdump packet quiz
+Minu arvutisse tuli teine variant, sest seal on näha nende ip > minu ip ning samuti on seal length taga ka mingi suurus. 
+
 ### Big Networks
