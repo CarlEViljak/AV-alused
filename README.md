@@ -293,4 +293,10 @@ Enne kui saadetakse infot luuakse ühendus omavahel ning ei saadeta midagi samut
 #### tcpdump packet quiz
 Minu arvutisse tuli teine variant, sest seal on näha nende ip > minu ip ning samuti on seal length taga ka mingi suurus. 
 
+#### Sequence Diagrams
+Kasutatakse, et demonstreerida neti protokolle. Aeg liigub ülevalt alla. Taskid tehakse ühe kaupa, enne üks kui alustatakse järgmisega. Ning üks request võib olla mitu edasi tagasi suhtlust.
+
+#### Buffering
+Paning pusle kokku ning sain vastuseks The password is always swordfish.
+
 ### Big Networks
