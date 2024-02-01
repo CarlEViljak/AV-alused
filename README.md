@@ -299,4 +299,18 @@ Kasutatakse, et demonstreerida neti protokolle. Aeg liigub ülevalt alla. Taskid
 #### Buffering
 Paning pusle kokku ning sain vastuseks The password is always swordfish.
 
+#### TCP Flags
+SYN (synchronize) [S] — Alustab uut sessiooni.
+FIN (finish) [F] — Lõpetab sessiooni. Saatja ütleb et ei saada enam infot.
+PSH (push) [P] — Lõpetab HTTP requesti
+RST (reset) [R] — TCP error
+ACK (acknowledge) [.] — Nätab et saatja sai info kätte. Peaaegu iga packet v.a SYN kasutab seda lippu
+URG (urgent) [U] — Tähtis info mida tuleb saata korrapäratus järjekorras.
+
+#### Why do packets drop
+Et ei tekiks olukorda kus info liikumisel tekib tuupik
+
+#### TCP Errors
+Runnin ühes terminalis `sudo tcpdump port 12345` ning teises `nc www.udacity.com 12345` ning tulemuseks sain, et ta saadab mitu packetit järjest aeglasemalt ning siis paneb nc kinni.
+
 ### Big Networks
