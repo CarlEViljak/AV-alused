@@ -313,4 +313,12 @@ Et ei tekiks olukorda kus info liikumisel tekib tuupik
 #### TCP Errors
 Runnin ühes terminalis `sudo tcpdump port 12345` ning teises `nc www.udacity.com 12345` ning tulemuseks sain, et ta saadab mitu packetit järjest aeglasemalt ning siis paneb nc kinni.
 
+#### Timeouts
+TCP on plaju taimereid mille täitumisel annab veateate. On ka olemas timeout sellele kui saaja pole infot kätte saanud.
+
+#### Errors Quiz
+TCP timeoutid toimuvad kui host lõpetab töötamise, ISPga kaob ühendus ning kui üritad ühendust saada serveriga mis ei eksisteeri.
+
 ### Big Networks
+
+#### 
