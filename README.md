@@ -321,4 +321,49 @@ TCP timeoutid toimuvad kui host lõpetab töötamise, ISPga kaob ühendus ning k
 
 ### Big Networks
 
-#### 
+#### Hops: Not Just for Beer
+Hop on info liikumine ühest kohast teise. Näiteks Cloudis ühelt ruuterilt teisele. Seda saab jälgida näiteks `traceroute` commandiga. `mtr` on arenunum. Proovisin ise `traceroute youtube.com`
+traceroute to youtube.com (216.58.211.238), 30 hops max, 60 byte packets
+ 1  10.0.2.2 (10.0.2.2)  0.062 ms  0.046 ms  0.097 ms
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  * * *
+ 7  * * *
+ 8  * * *
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+
+#### The Story about Ping
+Ping jälgib ka kui palju aega kulub saadetud info sinna ning tagasi jõudmiseks.
+
+
+#### The Story about Traceroute
+van Jackobson avastas, et tunnus mis takistab ringi keerlemist saab kasutada traceroutiks. See töötab nii et saadetakse järejst suureneva TTL(Time to Live) ning nii leiab kõige kiirema tee läbi.
+
+#### Bandwith across Networks
+Bandwith on kiirus mis on ruuterite vahel. Palju aeglaseid annab kokku kiire ehk siis liidetakse neti kiirused kokku ning see loeb kiiremate netide puhul näiteks serverid kes peavadki võttma vastu väga palju liiklust.
+
+#### What is Fast Anyway
+Bandwith ning latency mõlemad määravad neti kiirust, näiteks madal bandwith ning kõrge latency on mõlemad aegalsed. Kõrge latency on kui info peab liikuma pikki vahemaid. Madal bandwith on kui arvuti on aeglane näiteks on väga vana. Bandwith mängib rolli ka siis kui laetavad failid on suured.
