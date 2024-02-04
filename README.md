@@ -367,3 +367,27 @@ Bandwith on kiirus mis on ruuterite vahel. Palju aeglaseid annab kokku kiire ehk
 
 #### What is Fast Anyway
 Bandwith ning latency mõlemad määravad neti kiirust, näiteks madal bandwith ning kõrge latency on mõlemad aegalsed. Kõrge latency on kui info peab liikuma pikki vahemaid. Madal bandwith on kui arvuti on aeglane näiteks on väga vana. Bandwith mängib rolli ka siis kui laetavad failid on suured.
+
+#### Bandwidth-Delay Product
+Data mis Kuu ning Maa vahel oleks 1.28 Gbit igal aja hetkel.
+
+#### Congestion
+Selleks et Kuuga saaks suhelda oleks veel vaja saata infot aeglasemalt kui packetid dropivad.
+
+#### Middleboxes 1: Firewalls & Filtering
+Tulemüürid filtreerivad liiklust mis tuleb sisse ning läheb välja sellest võrgust kus nad on. Vahekastid saavad ka muuta seda sisse või välja minevat infot.
+
+#### What can a filter do?
+Et uurida miks info ei liigu korrektselt tuleks uurida mitut asja:
+Kas on võimalik kasutajal pingida aadressi kuhu ta ligi ei pääse
+Kas kasutaja saab ligi mõnele teisele domeenile samas serveris
+Kas nad saavad otsida serveri nime `host` või `dig` commandiga
+Ning kas kõik kasutajad kellel on sarnane probleem asuvad ühes riigis
+
+#### Middleboxes: Proxies & NAT
+Kodu ruuter toimib samaaegselt NAT ning lihtsa tulemüürina. ISPdel on oma klientide jaoks samuti välja töötatud oma NAT süsteem.
+
+#### Users behind a NAT
+Veebilehed eristavad kasutajaid sama public IDga:
+Nende sisse logitud kasutaja nimega
+Ning nende sessionis loodud küpsistega
